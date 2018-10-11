@@ -157,6 +157,10 @@ atob@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
 
+avalanche-css@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/avalanche-css/-/avalanche-css-1.3.0.tgz#e32e9a11604038b268db15bd61dab4ed7d378ebc"
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -2163,6 +2167,10 @@ normalize-path@^2.0.0, normalize-path@^2.0.1, normalize-path@^2.1.1:
   dependencies:
     remove-trailing-separator "^1.0.1"
 
+normalize.css@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.0.tgz#14ac5e461612538a4ce9be90a7da23f86e718493"
+
 npm-bundled@^1.0.1:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.5.tgz#3c1732b7ba936b3a10325aef616467c0ccbcc979"
@@ -2441,9 +2449,9 @@ process@~0.11.0, process@~0.11.2:
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
 
-progeny@~0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/progeny/-/progeny-0.12.0.tgz#4a4c85031a00f723b580b5929932b57d587d66d2"
+progeny@~0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/progeny/-/progeny-0.11.0.tgz#08dd5ecd9fddf457daa2b8ea1f148fa0326a074c"
   dependencies:
     async-each "^1.0.0"
     chalk "^1.1.3"
@@ -2765,9 +2773,9 @@ safe-regex@^1.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
-sass-brunch@^2.10.7:
-  version "2.10.7"
-  resolved "https://registry.yarnpkg.com/sass-brunch/-/sass-brunch-2.10.7.tgz#53738c2e089dcf761bf9ccf88e0c2f90748a00a7"
+sass-brunch@2.10.5:
+  version "2.10.5"
+  resolved "https://registry.yarnpkg.com/sass-brunch/-/sass-brunch-2.10.5.tgz#cc0df40774aee39b3c8c648becbc04da4988866e"
   dependencies:
     anymatch "~1.3.2"
     micro-promisify "~0.1.1"
@@ -2775,7 +2783,7 @@ sass-brunch@^2.10.7:
     node-sass-globbing "0.0.23"
     postcss "~6.0.8"
     postcss-modules "~0.8.0"
-    progeny "~0.12.0"
+    progeny "~0.11.0"
 
 sass-graph@^2.2.4:
   version "2.2.4"

@@ -4,7 +4,7 @@ html {
 
 body {
   @include font(13px);
-  background: $c-primary-dark;
+  background: red;
   box-sizing: border-box;
   min-height: 100%;
   overflow-x: hidden;
@@ -21,11 +21,6 @@ img {
 ::selection {
   background: $c-secondary;
   color: $c-primary-dark;
-}
-
-abbr[title] {
-  border-bottom: none;
-  cursor: help;
 }
 
 a,

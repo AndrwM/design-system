@@ -7,19 +7,16 @@
 @import "tools/mixin.elevation";
 
 // -- Base
-// @import "normalize.css/normalize";
-
-@import "base";
+@import "node_modules/normalize.css/normalize";
+@import "base"; 
 
 // -- Components
 // Contain
-// @import "avalanche-css/avalanche"; // .c-grid - Documentation: https://github.com/colourgarden/avalanche
-@import "components/c.container-page";
-@import "components/c.container-stats";
-@import "components/c.layout-standard";
+@import "node_modules/avalanche-css/avalanche"; // .c-grid - Documentation: https://github.com/colourgarden/avalanche
+// @import "components/c.container-page";
 @import "components/c.section";
 @import "components/c.card";
-@import "components/c.footer";
+// @import "components/c.footer";
 
 // Content
 @import "components/c.title";
@@ -28,8 +25,6 @@
 @import "components/c.attribute";
 @import "components/c.tag";
 @import "components/c.notification";
-@import "components/c.avatar";
-@import "components/c.stat";
 
 // Input
 @import "components/c.navigation";
@@ -38,10 +33,7 @@
 @import "components/c.input";
 
 // -- Vendor
-// @import "vendor/turbolinks";
-// @import "vendor/leaflet";
-// @import "vendor/select2";
-// @import "vendor/react-table";
+
 
 // -- Utilities
 @import "utilities/u.float";
