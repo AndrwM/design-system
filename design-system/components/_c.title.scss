@@ -1,0 +1,67 @@
+.c-title {
+  @include font(20px, regular, 1.5);
+  color: $c-grey-xdark;
+  margin: 0 0 $s-small;
+  display: block;
+
+  &--large {
+    @include font(38px, light, 1.3);
+    margin: $s-tiny 0 $s-regular;
+  }
+
+  &--small {
+    @include font(14px, medium, 1.4);
+  }
+
+  &--tiny {
+    @include font(12px, medium);
+    color: $c-primary-dark;
+    margin: 0 0 $s-tiny;
+  }
+
+  &--on-dark {
+    color: $c-white;
+  }
+
+  &--on-dark-dim {
+    color: rgba($c-white, 0.3);
+  }
+
+  &--focal {
+    color: $c-primary;
+  }
+
+  &--warn {
+    color: $c-warning;
+  }
+
+  &--center {
+    @media #{$bp-lap} {
+      text-align: center;
+    }
+  }
+
+  &[href]:hover {
+    cursor: pointer;
+    color: $c-grey-xdark;
+
+    @keyframes header-link-arrow {
+      from {
+        transform: translateX(-5px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0px);
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      display: inline-block;
+      color: $c-grey-medium;
+      margin: 0 0 0 4px;
+      content: "\21e2";
+      animation: 0.1s header-link-arrow linear;
+    }
+  }
+}

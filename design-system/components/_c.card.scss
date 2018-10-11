@@ -1,0 +1,25 @@
+.c-card {
+  margin: 0;
+  background: $c-white;
+  padding: 0;
+  overflow: hidden;
+
+  @media #{$bp-lap} {
+    @include elevation(1);
+    border: 1px solid $c-border;
+    border-radius: $border-radius;
+  }
+  
+  &--light {
+    background-color: $c-primary-light;
+  }
+  
+  &--highlight {
+    @include elevation(2);
+    border: 1px solid $c-primary-xlight;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}

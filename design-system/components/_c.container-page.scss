@@ -1,0 +1,26 @@
+.c-container-page {
+  padding: 0;
+  min-height: $h-page;
+  margin: $h-header auto 0;
+  max-width: $w-regular;
+  background: $c-white;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  @media #{$bp-lap} {
+    padding: $s-small;
+    background: transparent;
+  }
+
+  @media #{$bp-desk} {
+    padding: 3.5vw 0;
+    background: transparent;
+  }
+
+  &--slim {
+    @media #{$bp-desk} {
+      max-width: $w-slim;
+    }
+  }
+}

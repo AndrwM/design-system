@@ -1,0 +1,676 @@
+.m-codeeval {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+
+  @mixin utility-btn($color: $c-white, $background: $c-mintgreen) {
+    &,
+    &:visited {
+      background: rgba($background, 0.9);
+      border: 0;
+      box-sizing: border-box;
+      color: $color;
+      cursor: pointer;
+      display: none;
+      font-size: rem(14px);
+      font-weight: $ff-bold;
+      height: 100%;
+      line-height: rem(52px);
+      padding: 0 rem(16px);
+      transition: all 0.2s ease;
+      &[disabled] { opacity: 0.3; }
+
+      svg {
+        margin: 0 0 0 rem(6px);
+        vertical-align: rem(-4px);
+
+        path {
+          fill: $color;
+          transition: fill 0.2s ease;
+        }
+      }
+    }
+
+    &:active,
+    &:hover,
+    &:focus {
+      background: $background;
+      color: $color;
+      svg path { fill: $color; }
+    }
+  }
+
+  @mixin utility-secondary-btn($color: lighten($c-grey-medium, 16%), $background-hover: lighten($c-codemirror-bg, 5%)) {
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    overflow: hidden;
+    padding: 0 rem(16px);
+    transition: background-color 0.1s ease, color 0.1s ease;
+    color: $color;
+    outline: 0;
+    font-size: rem(14px);
+    font-weight: $ff-med;
+    height: 100%;
+    white-space: nowrap;
+
+    &-label { float: left; }
+
+    svg {
+      float: right;
+      margin-left: rem(6px);
+
+      path {
+        fill: $color;
+        transition: fill 0.1s ease;
+      }
+    }
+
+    &:hover {
+      background-color: $background-hover;
+      color: $c-white;
+      path { fill: $c-white; }
+    }
+  }
+
+  // Prevent display before JS load
+  textarea { opacity: 0; }
+
+  &-info {
+    background: $c-white;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    min-width: 300px;
+    position: relative;
+    width: 20%;
+
+    &::after {
+      background: rgba($c-codemirror-bg, 0.03);
+      bottom: 0;
+      content: "";
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 5px;
+    }
+
+    &::before {
+      background-image: linear-gradient(
+                   0deg,
+                   $c-white 0%,
+                   rgba($c-white, 0.8) 50%,
+                   transparent 100%);
+      bottom: 0;
+      content: "";
+      height: rem(20px);
+      left: 0;
+      position: absolute;
+      right: 0;
+      width: 100%;
+    }
+
+    &-title {
+      border-bottom: 1px solid $c-border;
+      color: $c-ironblack;
+      font-family: -apple-system, system-ui, 'segoe ui', roboto, oxygen, ubuntu, cantarell, 'fira sans', 'droid sans', 'helvetica neue', sans-serif;
+      font-size: rem(20px);
+      font-weight: $ff-med;
+      padding: rem(22px) rem(30px) rem(20px);
+
+      &-label {
+        color: $c-grey-medium;
+        display: block;
+        font-size: rem(10px);
+        font-weight: $ff-bold;
+        letter-spacing: rem(0.2px);
+        line-height: rem(22px);
+        text-transform: uppercase;
+      }
+    }
+
+    &-description {
+      font-size: rem(14px);
+      line-height: rem(26px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: rem(22px) rem(30px) rem(200px);
+
+      code { font-size: rem(14px); }
+
+      p {
+        margin: 0 0 rem(20px) !important;
+        max-width: rem(650px);
+      }
+
+      h2 {
+        // !important reqiured to overwrite markdown styling: .m-lessoncontent h2
+        font-size: rem(14px) !important;
+        text-transform: uppercase !important;
+        letter-spacing: rem(0.2px) !important;
+        display: block;
+        font-weight: $ff-bold !important;
+        margin: rem(40px) 0 rem(10px) !important;
+        line-height: rem(14px) !important;
+        padding: 0 !important;
+        position: static !important;
+        &::after { background: none !important; }
+      }
+
+      ul,
+      ol {
+        max-width: none !important;
+        padding: 0 !important;
+        margin: rem(16px) rem(-30px) rem(20px);
+        list-style: none;
+      }
+
+      li {
+        // !important reqiured to overwrite markdown styling: .m-lessoncontent li
+        margin: 0 !important;
+        padding: rem(10px) rem(28px) !important;
+        border-bottom: 1px dashed $c-border;
+
+        &:first-child { border-top: 1px dashed $c-border; }
+
+        &:nth-child(odd) {
+          background: rgba($c-grey-light, 0.75);
+          code { background: $c-white; }
+        }
+      }
+    }
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+  }
+
+  &-container-preloader {
+    background-color: darken($c-ironblack, 3%);
+    background-image: asset-url("exercise-preloader.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.3s ease-out;
+    z-index: 999999;
+
+    &.s-codeeval-preloader-dismissed {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &-container-tabs {
+    background-color: darken($c-codemirror-bg, 3%);
+    border-bottom: 1px solid darken($c-ironblack, 3%);
+    display: flex;
+    position: relative;
+
+    &-item {
+      box-shadow: 0 2px 0 0 lighten($c-codemirror-bg, 2%) inset;
+      color: rgba($c-white, 0.3);
+      cursor: pointer;
+      flex-grow: 1;
+      font-size: rem(14px);
+      font-weight: $ff-med;
+      padding: rem(16px) 0 rem(18px);
+      position: relative;
+      text-align: center;
+      transition: all 0.2s ease;
+
+      &.s-codeeval-container-tabs-item-small { max-width: 90px; }
+
+      &-notification {
+        // @include animation(fadedown-in 0.2s ease-in);
+        background: $c-codemirror-bg;
+        border-radius: 4px;
+        bottom: rem(-44px);
+        color: $c-white;
+        font-size: 13px;
+        font-weight: $ff-med;
+        letter-spacing: normal;
+        padding: rem(6px) rem(12px);
+        position: absolute;
+        right: rem(13px);
+        white-space: nowrap;
+        z-index: +3;
+
+        &::before {
+          border-bottom: rem(6px) solid $c-codemirror-bg;
+          border-left: rem(6px) solid transparent;
+          border-right: rem(6px) solid transparent;
+          content: " ";
+          height: 0;
+          position: absolute;
+          right: rem(24px);
+          top: rem(-6px);
+          width: 0;
+        }
+      }
+
+      &:hover,
+      &.s-codeeval-container-tabs-item-active {
+        box-shadow: 0 3px 0 0 lighten($c-codemirror-bg, 20%) inset;
+        color: rgba($c-white, 0.6);
+        font-weight: $ff-bold;
+      }
+
+      &.s-codeeval-container-tabs-item-active {
+        background-color: $c-codemirror-bg;
+        box-shadow: 0 4px 0 0 lighten($c-codemirror-bg, 30%) inset;
+        color: $c-white;
+      }
+    }
+  }
+
+  &-container-main {
+    background-color: $c-codemirror-bg;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    &-filetree {
+      background: darken($c-codemirror-bg, 4%);
+      box-sizing: border-box;
+      color: lighten($c-grey-medium, 20%);
+      font-family: -apple-system, system-ui, 'segoe ui', roboto, oxygen, ubuntu, cantarell, 'fira sans', 'droid sans', 'helvetica neue', sans-serif;
+      font-size: rem(14px);
+      list-style-type: none;
+      margin: 0;
+      min-width: rem(200px);
+      overflow: auto;
+      // !important reqiured to overwrite markdown styling: .m-lessoncontent ul
+      padding: rem(8px) 0 rem(30px) rem(4px) !important;
+
+      &.hidden {
+        display: none;
+      }
+
+      &-file {
+        background: asset-url("file.svg") no-repeat left rem(12px) center;
+        border-right: solid 2px transparent;
+        cursor: pointer;
+        // !important reqiured to overwrite markdown styling: .m-lessoncontent li
+        font-family: -apple-system, system-ui, 'segoe ui', roboto, oxygen, ubuntu, cantarell, 'fira sans', 'droid sans', 'helvetica neue', sans-serif !important;
+        line-height: rem(30px) !important;
+        margin: 0 !important;
+        padding: rem(3px) rem(6px) rem(3px) rem(32px);
+        transition: color 0.2s ease;
+
+        &[data-file="active"] {
+          border-right-color: $c-mintgreen;
+          color: $c-white;
+          font-weight: $ff-med;
+        }
+
+        &:hover { color: $c-white; }
+        &[data-file-editable="false"] { background-image: asset-url("file-disabled.svg"); }
+        &[data-file-editable="false"][data-file="active"]::after {
+          color: lighten($c-codemirror-bg, 18%);
+          content: "Read Only";
+          float: right;
+          font-size: rem(8px);
+          font-weight: $ff-bold;
+          letter-spacing: 0.05rem;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    &-code-codeeditor {
+      flex-direction: column;
+      flex-grow: 1;
+      min-width: rem(200px);
+      position: relative;
+    }
+
+    &-browser {
+      background: $c-border;
+      min-height: rem(200px);
+
+      &::before {
+        color: $c-grey-medium;
+        content: "(Once evaluated, your webpage will be displayed here.)";
+        font-size: rem(16px);
+        margin: rem(14px);
+      }
+
+      &-iframe {
+        border: 0;
+        border-left: 1px solid $c-border;
+        border-right: 1px solid $c-border;
+        box-sizing: border-box;
+        height: 100%;
+        position: absolute;
+        resize: none;
+        width: 100%;
+
+        // If there is a source in the iframe give it a white BG, this obscures the empty state
+        &[src] { background: $c-white; }
+      }
+    }
+
+    &-result {
+      background-color: lighten($c-codemirror-bg, 3%);
+
+      // Modify result syntax highlighting
+      .cm-negative {
+        color: $c-alertred;
+        font-weight: bold;
+      }
+
+      .cm-positive {
+        color: $c-alertgreen;
+        font-weight: bold;
+      }
+    }
+
+    &-eval-input {
+      background-color: lighten($c-codemirror-bg, 4%);
+
+      input {
+        background-color: inherit;
+        border: 0;
+        color: $c-white;
+        margin-left: 20px;
+        padding: 4px 8px;
+        width: 100%;
+      }
+
+      &::before {
+        color: $c-white;
+        content: ">";
+        display: block;
+        margin: 0.2em 10px;
+        position: absolute;
+      }
+    }
+
+    &-config {
+      padding: 1em 0 1em 0.5em;
+    }
+  }
+
+  //------ Utility Bar
+
+  &-container-utility {
+    @include clearfix;
+    background: darken($c-codemirror-bg, 4%);
+    box-sizing: border-box;
+    display: flex;
+    height: rem(52px);
+    width: 100%;
+    &-eval { @include utility-btn; }
+    &-next {
+      @include utility-btn($c-white, $c-alertgreen);
+      // animation: pulse-green 3s ease infinite;
+    }
+
+    &-reset {
+      @include utility-secondary-btn();
+      svg { margin-top: rem(1px); }
+    }
+
+    &-fullscreen {
+      @include utility-secondary-btn();
+      svg { margin-top: rem(3px); }
+    }
+
+    &-preview {
+      @include utility-btn;
+
+      > span > a {
+        border: 0;
+        color: $c-white;
+
+        &:hover {
+          background-color: transparent;
+          color: $c-white;
+        }
+      }
+
+      &,
+      &:visited { display: block; }
+    }
+
+    &-message {
+      border-radius: $border-radius;
+      color: $c-white;
+      font-size: rem(14px);
+      font-weight: $ff-bold;
+      margin: auto rem(10px) auto auto;
+      max-width: 350px;
+      overflow: hidden;
+      padding: rem(4px) rem(10px) rem(6px);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  //------ Global Tabpane (Window) Setup
+
+  [data-tabpane] {
+    display: flex;
+    flex-grow: 1;
+    min-width: rem(300px);
+    position: relative;
+    width: 100%;
+
+    &::after {
+      background-color: darken($c-codemirror-bg, 4%);
+      border-bottom-left-radius: 3px;
+      color: $c-white;
+      content: attr(data-tabpane);
+      font-size: rem(7px);
+      font-weight: $ff-bold;
+      letter-spacing: 0.05rem;
+      opacity: 0.8;
+      padding: rem(4px) rem(9px);
+      position: absolute;
+      right: 0;
+      text-transform: uppercase;
+      top: 0;
+      z-index: +2;
+    }
+  }
+
+  .CodeMirror {
+    background-color: transparent;
+    height: auto;
+    line-height: 1.6;
+    max-height: none;
+    resize: none;
+    width: 100%;
+    .CodeMirror-lines { padding: 0 0 3rem 0.5rem; }
+    .CodeMirror-gutters { background-color: transparent; }
+    .CodeMirror-scroll { padding-top: rem(10px); }
+    .CodeMirror-overlayscroll-horizontal,
+    .CodeMirror-overlayscroll-vertical { opacity: 0.4; }
+  }
+
+  //------ Result State Styling
+
+  &[data-coderesult="success"] {
+    .m-codeeval-container-main-result .CodeMirror {
+      color: $c-alertgreen;
+      font-weight: bold;
+    }
+    .m-codeeval-container-utility-message { color: $c-alertgreen; }
+    .m-codeeval-container-tabs-item[data-tab-target="result"] {
+      background-color: rgba($c-alertgreen, 0.2);
+      box-shadow: 0 3px 0 0 $c-alertgreen inset;
+      &.s-codeeval-container-tabs-item-active { box-shadow: 0 4px 0 0 $c-alertgreen inset; }
+    }
+    .m-codeeval-container-tabs-item-notification {
+      background-color: $c-alertgreen;
+      &::before { border-bottom-color: $c-alertgreen; }
+    }
+
+    .m-codeeval-container-utility-eval { @include utility-btn($c-white, $c-codemirror-bg); }
+  }
+
+  &[data-coderesult="fail"] {
+    .m-codeeval-container-main-result .CodeMirror {
+      color: $c-alertred;
+      font-weight: bold;
+    }
+
+    .m-codeeval-container-utility-message { color: $c-alertred; }
+    .m-codeeval-container-tabs-item[data-tab-target="result"] {
+      background-color: rgba($c-alertred, 0.2);
+      box-shadow: 0 3px 0 0 $c-alertred inset;
+      &.s-codeeval-container-tabs-item-active { box-shadow: 0 4px 0 0 $c-alertred inset; }
+    }
+    .m-codeeval-container-tabs-item-notification {
+      background-color: $c-alertred;
+      &::before { border-bottom-color: $c-alertred; }
+    }
+  }
+
+  //------ Window Configuration
+
+  &[data-layout="tabbed"] [data-tabpane] {
+    // Hide window labels
+    &::after { display: none; }
+    &[data-tab-visible="false"] {
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      width: 1px;
+    }
+  }
+
+  &[data-layout="vertical"] {
+    .m-codeeval-container-tabs { display: none; }
+    .m-codeeval-container-main { flex-direction: row; }
+    .m-codeeval-container-main-code { flex-grow: 2; }
+    [data-tabpane]:not(:first-child) { border-left: 2px solid darken($c-codemirror-bg, 4%); }
+    // If there is not a result state hide result & browser windows
+    &:not([data-coderesult]) {
+      .m-codeeval-container-main-result { display: none; }
+      .m-codeeval-container-main-eval-input { display: none; }
+    }
+  }
+
+  &[data-layout="horizontal"] {
+    .m-codeeval-container-tabs { display: none; }
+    .m-codeeval-container-main { flex-direction: column; }
+    .m-codeeval-container-main-code { flex-grow: 2; }
+    [data-tabpane]:not(:first-child) { border-top: 2px solid darken($c-codemirror-bg, 4%); }
+    // If there is not a result state hide result & browser windows
+    &:not([data-coderesult]) {
+      .m-codeeval-container-main-result { display: none; }
+      .m-codeeval-container-main-eval-input { display: none; }
+    }
+  }
+
+  //------ Display Settings
+
+  // Force to conform to height of containing element
+  &[data-preventautogrow] {
+    [data-tabpane] {
+      .CodeMirror {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        max-height: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+
+        &-scroll {
+          max-height: none;
+        }
+      }
+    }
+  }
+
+  &[data-fullscreen] {
+    border-radius: 0 !important;
+    bottom: 0;
+    height: 100% !important;
+    left: 0;
+    margin: 0 !important;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 4000;
+
+    [data-fullscreen-btn] {
+      background: $c-codemirror-bg;
+      color: $c-white;
+
+      path {
+        fill: $c-white;
+        transform: rotate(180deg);
+        transform-origin: 50%;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $w-regular) {
+  .m-codeeval-info {
+    max-height: rem(300px);
+    max-width: inherit;
+    width: 100%;
+  }
+  .m-codeeval-info-description { padding-bottom: rem(14px); }
+  .m-codeeval [data-tabpane]::after { content: none; }
+}
+
+//------ Mobile Fallback
+
+@media (max-width: $w-slim) {
+  .m-codeeval.s-codeeval-mobileunavailablemessage {
+    background: repeating-linear-gradient(
+      45deg,
+      darken(desaturate($c-grey-light, 10%), 2%),
+      darken(desaturate($c-grey-light, 10%), 2%) 15px,
+      $c-grey-light 15px,
+      $c-grey-light 30px
+    );
+    display: block;
+    // Overwrite injected height from view partial
+    height: auto !important;
+    padding: rem(14px) rem(14px) rem(10px);
+    * { display: none; }
+
+    &::before {
+      color: $c-grey-medium;
+      line-height: 2;
+      content: "Using executable code exerciese my be difficult on your device width.";
+      display: block;
+      font-size: rem(16px);
+      font-weight: $ff-med;
+      text-align: center;
+    }
+
+    &::after {
+      color: $c-grey-medium;
+      line-height: 2;
+      content: "Try Anyway";
+      display: block;
+      font-size: rem(14px);
+      font-weight: $ff-med;
+      text-align: center;
+      color: $c-white;
+      background: $c-grey-medium;
+      border-radius: 4px;
+      margin-top: rem(20px);
+      padding: rem(10px) 0;
+    }
+  }
+}

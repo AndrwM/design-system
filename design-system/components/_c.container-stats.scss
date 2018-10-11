@@ -1,0 +1,119 @@
+.c-container-stats {
+  
+  @mixin float-above-map {
+    z-index: 99999;
+    position: relative;
+  }
+
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  box-sizing: border-box;
+  color: $c-white;
+  position: relative;
+  background: $c-primary-xdark;
+  user-select: none;
+
+  .c-container-stats__map {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: darken($c-primary, 50%);
+  }
+
+  .c-container-stats__logo {
+    @include float-above-map;
+    width: 100px;
+    margin: $s-small;
+
+    @media #{$bp-lap} { width: 200px; }
+
+    @media #{$bp-wide} {
+      width: 300px;
+      text-align: center;
+      margin: $s-regular auto 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .c-container-stats__title {
+    @include float-above-map;
+    @include font(12px, medium, 2.5);
+    padding: 0 $s-small;
+    margin: $s-small 0 0 0;
+    letter-spacing: rem(0.8px);
+    text-transform: uppercase;
+    color: $c-white;
+    background: $c-primary;
+    border-radius: 200px;
+    text-align: center;
+    display: none;
+    box-shadow: 0 3px 20px 0 rgba($c-black, 0.3);
+
+    @media #{$bp-wide} {
+      display: inline-block;
+    }
+  }
+
+  .c-container-stats__main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .c-container-stats__main-left {
+    @include float-above-map;
+    margin: $s-small 0 0 $s-small;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-grow: 1;
+    max-width: 100px;
+    justify-items: flex-end;
+    @media #{$bp-lap} { max-width: 240px; }
+  }
+    
+  .c-container-stats__footer {
+    background: rgba($c-primary, 0.1);
+    display: flex;
+    padding: $s-tiny 100px $s-tiny $s-small; // Right padding is a magic number to pad footer away from right-affixed legend
+    flex-direction: row;
+  }
+  
+  .c-container-stats__footer-item {
+    @include float-above-map;
+    margin: 0 $s-tiny 0 0;
+    padding: $s-tiny;
+    max-width: 280px;
+    border-radius: $border-radius * 2;
+    border: 2px solid transparent;
+    display: none;
+    
+    @media #{$bp-lap} {
+      &:nth-child(1),
+      &:nth-child(4) { display: block; }
+    }
+    
+    @media #{$bp-desk} {
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(4) { display: block; }
+    }
+
+    @media #{$bp-wide} {
+      display: block;
+    }
+    
+    &[href] {
+      background: rgba($c-black, 0.6);
+      &:hover { border-color: $c-primary; }
+    }
+  }
+}

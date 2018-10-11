@@ -1,0 +1,28 @@
+.c-tag {
+  $active-classes: "&.c-button--active, \
+                    &,:active, \
+                    &:focus, \
+                    &:hover";
+
+  @include font(12px, medium, 1.9);
+  @include elevation(1);
+  background-color: $c-white;
+  border-radius: $border-radius;
+  color: $c-primary;
+  padding: 0 $s-tiny;
+  display: inline-block;
+  border: 1px solid $c-border;
+  text-transform: capitalize;
+  margin: 0 $s-tiny $s-tiny 0;
+  transition: background-color $transition-speed ease,
+              border-color $transition-speed ease;
+
+
+  &[href].c-tag--active,
+  &[href]:active,
+  &[href]:focus,
+  &[href]:hover {
+    background-color: $c-secondary-light;
+    border-color: $c-secondary;
+  }
+}

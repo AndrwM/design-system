@@ -1,0 +1,29 @@
+.c-section {
+  $padding-x: 3vw;
+
+  @include clearfix;
+  padding: $s-regular $s-small;
+  display: block;
+
+  @media #{$bp-desk} {
+    padding: $s-regular $padding-x
+  }
+
+  &--small { padding: $s-small $padding-x; }
+  &--flush { padding: 0 $padding-x; }
+  &--white { background: $c-white; }
+  &--light { background: $c-grey-xlight; }
+  &--focal { background: $c-primary-light; }
+  &--dark { background: $c-primary; }
+
+  & + & { border-top: 1px solid $c-border; }
+
+  &[href]:hover {
+      background-color: $c-grey-xlight;
+      * { text-decoration: underline; }
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,3 @@
+@function rem($target, $context: $ff-base-size) {
+  @return ($target / $context) * 1rem;
+}

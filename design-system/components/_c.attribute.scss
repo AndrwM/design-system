@@ -1,0 +1,23 @@
+.c-attribute {
+  @include font(13px, regular, 1.8, $ff-mono);
+  display: inline-block;
+  color: $c-grey-xdark;
+  margin: 0 $s-regular $s-regular 0;
+
+  .c-attribute__key {
+    @include font(10px, medium);
+    opacity: 0.5;
+    color: $c-grey-dark;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .c-attribute__value {
+    margin: 0;
+    &:empty::after {
+      content: "---";
+      opacity: 0.5;
+    }
+  }
+}

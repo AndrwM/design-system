@@ -1,0 +1,78 @@
+.c-button {
+  $active-classes: "&.c-button--active, \
+                    &:active, \
+                    &:focus, \
+                    &:hover";
+
+  @include elevation(0);
+  @include font(14px, medium, 1.8);
+  background: $c-white;
+  border-radius: $border-radius;
+  border: 1px solid $c-border;
+  color: $c-grey-xdark;
+  padding: $s-tiny $s-small;
+  text-align: center;
+  transition: color $transition-speed ease,
+              background $transition-speed ease,
+              box-shadow $transition-speed ease;              
+  cursor: pointer;
+  display: inline-flex;
+  user-select: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  #{$active-classes} {
+    @include elevation(1);
+    border-color: rgba($c-primary-xlight, 0.5);
+    background: $c-white;
+    color: $c-primary;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &--large {
+    @include font(17px, regular, 3.4);
+    padding: 0 $s-tiny;
+  }
+
+  &--small {
+    @include font(13px, medium, 2.2);
+    padding: 0 $s-tiny;
+  }
+
+  &--disabled,
+  &[disabled] {
+    color: $c-grey-medium !important;
+    background: $c-grey-xlight !important;
+    border-color: $c-border !important;
+    cursor: not-allowed;
+
+    #{$active-classes} {
+      @include elevation(0);
+    }
+  }
+
+  &--warning {
+    color: $c-warning !important;
+  }
+
+  &--focal {
+    background: $c-primary;
+    color: $c-white;
+
+    #{$active-classes} {
+      background: lighten($c-primary, 5%);
+      color: $c-white;
+      border-color: darken($c-primary, 10%);
+    }
+  }
+
+  &--full-width {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}

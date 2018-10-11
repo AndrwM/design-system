@@ -1,0 +1,18 @@
+@import "react-table/react-table"; // PACKAGE STYLES
+
+.ReactTable {
+  @include font(13px);
+  height: $h-page;
+  :focus { outline: 0; }
+
+  .rt-thead .rt-th.-sort-asc,
+  .ReactTable .rt-thead .rt-td.-sort-asc {
+    box-shadow: inset 0 2px 0 0 $c-primary;
+  }
+
+
+  .rt-thead .rt-th.-sort-desc,
+  .ReactTable .rt-thead .rt-td.-sort-desc {
+    box-shadow: inset 0 -2px 0 0 $c-primary;
+  }
+}

@@ -1,0 +1,105 @@
+// ---- Legend
+// $w-  Width
+// $h-  Height
+// $s-  Spacing
+// $z-  Z-Index
+// $bp- Breakpoint
+// $av- Avalanche grid (vendor)
+// $c-  Color
+// $ff- Typography related
+
+// -- Width
+$w-regular: 1100px;
+$w-slim: 800px;
+
+// -- Height
+$h-header: 56px;
+$h-page: calc(100vh - #{$h-header});
+
+// -- Spacing
+$s-tiny: 7px;
+$s-small: 14px;
+$s-regular: 36px;
+$s-large: 56px;
+
+// -- Z-Index
+$z-1: 10;
+$z-2: 20;
+$z-3: 30;
+$z-4: 40;
+
+// -- Breakpoints
+$bp-lap: "(min-width: 601px)";
+$bp-desk: "(min-width: 1001px)";
+$bp-wide: "(min-width: 1201px)";
+
+// -- Grid
+$av-namespace: "c-grid";
+$av-width-class-namespace: "u-";
+$av-enable-grid-rev: true;
+$av-enable-grid-center: true;
+$av-enable-grid-large: true;
+$av-enable-grid-middle: true;
+$av-enable-grid-bottom: true;
+$av-enable-grid-flush: true;
+$av-enable-grid-auto: true;
+$av-gutter: $s-regular;
+$av-enable-grid-tiny: true;
+$av-enable-grid-small: true;
+$av-widths: (1,2,3,4,5,6,7,8,9,10,12);
+$av-breakpoints: (
+  "lap":    $bp-lap,
+  "desk":   $bp-desk,
+  "wide":   $bp-wide
+);
+
+// -- Colors: Brand & UI
+$c-primary-xdark: darken(#1d1930, 7%);
+$c-primary-dark: #1d1930;
+$c-primary: #685ccc;
+$c-primary-light: #5845a3;
+$c-primary-xlight: #d5cdf7;
+
+$c-secondary: #d2f2ff;
+$c-secondary-light: #EAFAFF;
+
+$c-tertiary: #f168b4;
+
+$c-grey-xdark: #272727;
+$c-grey-dark: #5f5f5f;
+$c-grey-medium: #737373;
+$c-grey-light: #EEEFF1;
+$c-grey-xlight: #f7f9fb;
+$c-white: #ffffff;
+$c-black: #000000;
+
+// -- Colors: Element / Component Specific;
+$c-warning: #e63f20;
+$c-border: rgba($c-grey-xdark, 0.08);
+
+// -- Colors: Editor
+$c-alertgreen: #23bf59 !default;
+$c-alertred: #f34230 !default;
+$c-mintgreen: #00b3e6 !default;
+$c-codemirror-bg: #022731 !default;
+$c-ironblack: #022731;
+
+$ff-primary: (
+  family: "-apple-system,BlinkMacSystemFont,'segoe ui',roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,'helvetica neue',sans-serif",
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700
+);
+
+$ff-mono: (
+  family: "monospace",
+  regular: 400
+);
+
+$ff-baseline: 1.6;
+$ff-base-size: 13px;
+
+// -- Misc
+$border-radius: 6px;
+$transition-speed: 0.15s;

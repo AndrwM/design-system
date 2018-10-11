@@ -1,0 +1,9 @@
+.u-hide {
+  &-mobile {
+    display: none;
+
+    @media #{$bp-lap} {
+      display: block;
+    }
+  }
+}

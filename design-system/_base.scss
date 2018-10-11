@@ -1,0 +1,73 @@
+html {
+  font-size: $ff-base-size;
+}
+
+body {
+  @include font(13px);
+  background: $c-primary-dark;
+  box-sizing: border-box;
+  min-height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+}
+
+::selection {
+  background: $c-secondary;
+  color: $c-primary-dark;
+}
+
+abbr[title] {
+  border-bottom: none;
+  cursor: help;
+}
+
+a,
+a:focus,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: $c-primary;
+}
+
+[data-tooltip] {
+  position: relative;
+  pointer-events: help;
+}
+
+[data-tooltip]::before {
+  @include font(12px, medium);
+  z-index: $z-1;
+  position: absolute;
+  left: 50%;
+  transform: translateY(-100%) translateX(-50%);
+  border-radius: 10000px; // Arbitrary large number
+  background-color: rgba($c-primary-light, 0.96);
+  color: $c-grey-dark;
+  content: attr(data-tooltip);
+  text-align: center;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  padding: $s-tiny $s-small;
+  pointer-events: none;
+  transition: opacity $transition-speed ease;
+}
+
+[data-tooltip]:hover::before{
+  visibility: visible;
+  opacity: 1;
+}
+
+[data-tooltip]::after {
+  content: ' [?]';
+  color: $c-primary-light;
+  font-size: 90%;
+  vertical-align: baseline;
+}

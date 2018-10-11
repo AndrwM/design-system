@@ -1,0 +1,16 @@
+.c-link {
+  @include font(13px, regular);
+  transition: color $transition-speed linear, background $transition-speed linear;
+  color: $c-primary;
+  border-bottom: 1px solid $c-primary-light;
+  cursor: pointer;
+  display: inline-block;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $c-primary;
+    border-bottom-color: $c-secondary;
+    background: $c-secondary-light;
+  }
+}

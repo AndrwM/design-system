@@ -1,0 +1,39 @@
+$spacing-directions: (
+  null: null,
+  '-top': '-top',
+  '-right': '-right',
+  '-bottom': '-bottom',
+  '-left': '-left',
+  '-horizontal': '-left' '-right',
+  '-vertical': '-top' '-bottom',
+) !default;
+
+$spacing-properties: (
+  'padding': 'padding',
+  'margin': 'margin',
+) !default;
+
+$spacing-sizes: (
+  '-tiny':       $s-tiny,
+  '-small':      $s-small,
+  null:          $s-regular,
+  '-large':      $s-large,
+  '-none': 0
+) !default;
+
+@each $property-namespace, $property in $spacing-properties {
+  @each $direction-namespace, $direction-rules in $spacing-directions {
+    @each $size-namespace, $size in $spacing-sizes {
+      .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace} {
+        @each $direction in $direction-rules {
+          #{$property}#{$direction}: $size !important;
+        }
+      }
+    }
+  }
+}
+
+.u-margin-horizontal-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

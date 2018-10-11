@@ -1,0 +1,49 @@
+.c-notification {
+
+  @keyframes page-notification-fade {
+    0% {
+      opacity: 0.98;
+      visibility: visible;
+    }
+    90% {
+      opacity: 0.9;
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: visible;
+    }
+  }
+
+  @include font(15px, medium);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: $s-small $s-regular;
+  background-color: $c-primary;
+  color: $c-white;
+  z-index: $z-4;
+  visibility: hidden;
+  opacity: 0;
+  animation: 8s page-notification-fade ease;
+  z-index: 99999;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 2px;
+    width: 20px;
+    margin-right: $s-small;
+    vertical-align: 4px;
+    background-color: $c-primary-light;
+  }
+
+  &--warning {
+    background-color: darken($c-warning, 20%);
+
+    &::before {
+      background-color: $c-warning;
+    }
+  }
+}

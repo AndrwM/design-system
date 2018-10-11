@@ -1,0 +1,32 @@
+.c-list {
+  margin: 0 0 $s-small;
+  padding: 0;
+  list-style-position: inside;
+
+  .c-list__item {
+    @include font(13px, regular, 1.9);
+    color: $c-grey-medium;
+    padding: 0;
+  }
+
+  .c-list__item-title {
+    @include font(13px, medium, inherit);
+    color: $c-grey-dark;
+  }
+}
+
+// Specific styles for <ul> tag
+ul.c-list {
+  list-style: none;
+
+  .c-list__item::before {
+    content: "-";
+    margin: 0 $s-tiny 0 0;
+    color: rgba($c-grey-medium, 0.5);
+  }
+}
+
+// Specific styles for <ol> tag
+ol.c-list .c-list__item::before {
+  content: '';
+}

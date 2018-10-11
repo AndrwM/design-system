@@ -1,0 +1,17 @@
+@mixin font(
+            $size,
+            $weight: regular,
+            $leading: $ff-baseline,
+            $family: $ff-primary
+            ) {
+
+  @if $size == inherit {
+    font-size: inherit;
+  } @else {
+    font-size: rem($size);
+  }
+
+  line-height: $leading;
+  font-family: unquote(map-get($family, family));
+  font-weight: map-get($family, $weight);
+}
