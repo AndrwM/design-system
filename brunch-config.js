@@ -9,9 +9,7 @@ module.exports = {
       }
     },
     plugins: {
-      sass: {
-        mode: "native"
-      }
+      sass: { mode: "native" }
     }
   }
 };

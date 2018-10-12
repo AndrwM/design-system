@@ -4,7 +4,7 @@ html {
 
 body {
   @include font(13px);
-  background: red;
+  background: $c-grey-xlight;
   box-sizing: border-box;
   min-height: 100%;
   overflow-x: hidden;

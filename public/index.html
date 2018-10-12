@@ -5,7 +5,6 @@
   </head>
   <body>
     <div class="c-container-page">
-      
       <header class="c-header">
         <div class="c-navigtion">
           <a class="c-navigtion__link" href="#">
@@ -19,6 +18,175 @@
           </a>
         </div>
       </header>
+
+      <div class="c-section">
+        <h1 class="c-title c-title--large">Welcome to the Sentio UI documentation 🎨</h1>
+        <p class="c-paragraph">A living directory of UI components &amp; compositions.</p>
+        <p class="c-paragraph">Check out this page's pre-rendered source code for markup structure reference. The master list of all components lives in <span style="font-family: monospace;">stylesheets/application.scss</span>.</p>
+      </div>
+      
+      <div class="c-section">
+        <h2 class="c-title c-title--warn">👉 Blocks of elements need to be wrapped in <span style="font-family: monospace;">"c-section"</span> elements 👈</h2>
+        <p class="c-paragraph c-paragraph--small">The Section component is a tiny wrapper that provides the standardized padding accross the *entire* app.</p>
+      </div>
+      
+      <div class="c-section">
+        <h1 class="c-title c-title--large">Large Heading</h1>
+        <h2 class="c-title">Standard Heading</h2>
+        <h3 class="c-title c-title--small">Small Heading</h3>
+        <h4 class="c-title c-title--tiny">Tiny Heading</h4>
+        <h2 class="c-title c-title--warn">Warning Color Variant</h2>
+        <a class="c-title" href="#">This Heading Is Also A Link</a>
+      </div>
+      
+      <div class="c-section">
+        <p class="c-paragraph">In the history of modern astronomy, there is probably no one greater leap forward than the building and launch of the space telescope known as the Hubble.</p>
+        <p class="c-paragraph c-paragraph--small">In the history of modern astronomy, there is probably no one greater leap forward than the building and launch of the space telescope <a class="c-paragraph__link" href="#">known as the Hubble.</a></p>
+      </div>    
+      <div class="c-section">
+        <div class="c-attribute">
+          <div class="c-attribute__key">Participants</div>
+          <div class="c-attribute__value">600</div>
+        </div>
+        <div class="c-attribute">
+          <div class="c-attribute__key">Last Updated</div>
+          <div class="c-attribute__value">40 seconds ago</div>
+        </div>
+      </div>
+      
+      <div class="c-section">
+        <a class="c-link" href="#">Standalone Links</a>&nbsp;
+        <a class="c-link" href="#">Standalone Links</a>&nbsp;
+        <a class="c-link" href="#">Standalone Links</a>&nbsp;
+      </div>      
+      
+      <div class="c-section">
+        <p class="c-paragraph u-margin-bottom-small">To prepare your list for uploading, your contacts should be arranged in rows with column headings:</p>
+        <ul class="c-list">
+          <li class="c-list__item">last_name</li>
+          <li class="c-list__item">first_name</li>
+          <li class="c-list__item">email</li>
+        </ul>
+      </div>
+      <div class="c-section">
+        <h3 class="c-title c-title--tiny">Lists Can Also Be Navigational Elements</h3>
+        <ul class="c-list">
+          <li class="c-list__item">
+            <a class="c-link" href="#">This is a link component inside of a list</a>
+          </li>
+          <li class="c-list__item">
+            <a class="c-link" href="#">This is a link component inside of a list</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="c-section">
+        <h3 class="c-title c-title--small">Current Success Factors</h3>
+        <p class="c-paragraph c-paragraph--small">High performing <%= link_to "Human Resources", "#", class: "c-link" %> team members showed the following qualities:</p>
+        <ol class="c-list">
+          <li class="c-list__item">
+            <span class="c-list__item-title">Cooperation:</span>
+            Ability and willingness to work with others.
+          </li>
+          <li class="c-list__item">
+            <span class="c-list__item-title">Extraversion:</span>
+            ​Behavior where an individual enjoys being around other people.
+          </li>
+          <li class="c-list__item">
+            <span class="c-list__item-title">Confidence:</span>
+            A firm belief in one’s own abilities.
+          </li>
+          <li class="c-list__item">
+            <span class="c-list__item-title">Orderliness:</span>
+            A desire for organization, cleanliness, and symmetry.
+          </li>
+          <li class="c-list__item">
+            <span class="c-list__item-title" data-tooltip="Tooltips can provide additional context.">This Element Has A Tooltip</span>
+          </li>
+        </ol>
+      </div>
+      
+      
+      <div class="c-section">
+        <a class="c-button" href="#">Invite Top Performer</a>
+        <a class="c-button c-button--focal" href="#">Create An Account</a>
+        <a class="c-button c-button--warning" href="#">Destroy Everything</a>
+        <a class="c-button c-button--small" href="#">Invite Participants</a>
+        <a class="c-button c-button--small c-button--focal" href="#">Export PDF</a>
+        <a class="c-button c-button--small c-button--warning" href="#">Delete This</a>
+      </div>
+      
+      <div class="c-section">
+        <div class="c-card">
+          <div class="c-section">
+            <h4 class="c-title c-title--small">Let's Perform An Action</h4>
+            <p class="c-paragraph c-paragraph--small">In the history of modern astronomy, there is probably no one greater leap forward than the building and launch of the space telescope <a class="c-paragraph__link" href="#">known as the Hubble.</a>
+            </p>
+            <a class="c-button c-button--small" href="#">Invite Participants</a>
+          </div>
+        </div>
+      </div>
+      
+      
+      <div class="c-section">
+        <div class="c-grid c-grid--tiny">
+          <div class="c-grid__cell u-1/2--lap">
+            <div class="c-input">
+              <label class="c-input__label" for="input1">Email address</label>
+              <input class="c-input__text" type="email" id="input1" placeholder="Enter email">
+            </div>
+          </div>
+          <div class="c-grid__cell u-1/2--lap">
+            <div class="c-input">
+              <label class="c-input__label" for="input2">Email address</label>
+              <input class="c-input__text" type="text" id="input2" placeholder="Enter email">
+            </div>
+          </div>
+        </div>
+        <div class="c-input">
+          <label class="c-input__label" for="input3">Choose One&hellip;</label>
+          <select class="c-input__select" id="input3">
+            <option value="1">Are Poptarts Ravioli?</option>
+            <option value="2">VeggieTales Facts</option>
+          </select>
+        </div>
+        <div class="c-input">
+          <label class="c-input__label" for="input4">Upload</label>
+          <input type="file" class="c-input__file" id="input4" />
+        </div>
+        <div class="c-input">
+          <label class="c-input__label" for="input5">More Information</label>
+          <textarea class="c-input__text" id="input5" rows="4">Lorem Ipsum</textarea>
+        </div>
+        <div class="c-input">
+          <input class="c-input__checkbox" type="checkbox" id="input6">
+          <label class="c-input__label c-input__label--inline" for="input6">More Information</label>
+        </div>
+      </div>
+     
+      <div class="c-section">
+        <ul class="c-navigation">
+          <li class="c-navigation__item">
+            <a class="c-navigtion__link c-navigation__link--active" href="#">Navigation Link</a>
+          </li>
+          <li class="c-navigation__item">
+            <a class="c-navigtion__link" href="#">Navigation Link</a>
+          </li>
+          <li class="c-navigation__item">
+            <a class="c-navigtion__link" href="#">Navigation Link</a>
+          </li>
+          <li class="c-navigation__item c-navigation__item--push-right">
+            <a class="c-navigtion__link" href="#">Navigation Link Pushed Right</a>
+          </li>
+          <li class="c-navigation__item">
+            <a class="c-navigtion__link" href="#">Navigation Link</a>
+          </li>
+          <li class="c-navigation__item">
+            <a class="c-button c-button--small" href="#">Navigation Component Can Also Hold Buttons</a>
+          </li>
+        </ul>
+      </div>
+        
 
     </div>
   </body>

@@ -305,7 +305,7 @@ body {
   line-height: 1.6;
   font-family: -apple-system,BlinkMacSystemFont,'segoe ui',roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,'helvetica neue',sans-serif;
   font-weight: 400;
-  background: red;
+  background: #f7f9fb;
   box-sizing: border-box;
   min-height: 100%;
   overflow-x: hidden;
