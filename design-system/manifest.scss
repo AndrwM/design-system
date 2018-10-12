@@ -13,10 +13,8 @@
 // -- Components
 // Contain
 @import "node_modules/avalanche-css/avalanche"; // .c-grid - Documentation: https://github.com/colourgarden/avalanche
-// @import "components/c.container-page";
 @import "components/c.section";
 @import "components/c.card";
-// @import "components/c.footer";
 
 // Content
 @import "components/c.title";
@@ -25,15 +23,13 @@
 @import "components/c.attribute";
 @import "components/c.tag";
 @import "components/c.notification";
+@import "components/c.book";
 
 // Input
 @import "components/c.navigation";
 @import "components/c.button";
 @import "components/c.link";
 @import "components/c.input";
-
-// -- Vendor
-
 
 // -- Utilities
 @import "utilities/u.float";

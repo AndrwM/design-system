@@ -10,7 +10,7 @@
   },
   "scripts": {
     "serve": "brunch server --watch",
-    "build-styleguide": "yarn run kss --source design-system --destination public/styleguide --css /assets/style.css",
+    "build-styleguide": "yarn run kss --source design-system --destination public/styleguide --css /assets/style.css --homepage readme.md --title 'Design System'",
     "clean-styleguide": "rm -rf public/styleguide"
   }
 }

@@ -5,13 +5,13 @@
 // Markup:
 // <ul class="c-navigation {{modifier_class}}">
 //   <li class="c-navigation__item">
-//     <a class="c-navigtion__link c-navigation__link--active" href="#">Navigation Link</a>
+//     <a class="c-navigation__link c-navigation__link--active" href="#">Navigation Link</a>
 //   </li>
 //   <li class="c-navigation__item">
-//     <a class="c-navigtion__link" href="#">Navigation Link</a>
+//     <a class="c-navigation__link" href="#">Navigation Link</a>
 //   </li>
 //   <li class="c-navigation__item c-navigation__item--push-right">
-//     <a class="c-navigtion__link" href="#">Navigation Link Pushed Right</a>
+//     <a class="c-navigation__link" href="#">Navigation Link Pushed Right</a>
 //   </li>
 //   <li class="c-navigation__item">
 //     <a class="c-button c-button--small" href="#">Navigation Component Can Also Hold Buttons</a>
@@ -65,7 +65,6 @@
 
   &--no-border {
     margin-bottom: $s-tiny;
-    .c-navigation__item {  }
     .c-navigation__link { border-bottom: none; }
   }
 }

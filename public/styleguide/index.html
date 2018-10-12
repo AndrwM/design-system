@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>KSS Style Guide</title>
+  <title>Design System</title>
 
   <meta name="description" content="">
   <meta name="generator" content="kss-node">
@@ -16,7 +16,7 @@
 
 <div class="kss-sidebar kss-style">
   <header class="kss-header">
-    <h1 class="kss-doc-title">KSS Style Guide</h1>
+    <h1 class="kss-doc-title">Design System</h1>
   </header>
   <nav class="kss-nav" aria-label="Style Guide">
     <ul class="kss-nav__menu">
@@ -36,6 +36,23 @@
 </div>
 <main class="kss-main" aria-label="Content">
   <article>
+      <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
+        <h2>UI</h2>
+<p>The styles are broken down into a few different types by folder and included in the master <code>manifest.scss</code> manifest file:</p>
+<ol>
+<li><strong>Variables</strong> There is one master variables file that exists at the stylesheet root. This file provides you with standardized type, spacing, timing, colors, etc. Keep in mind these variables affect the <em>whole site</em>.</li>
+<li><strong>Tools</strong> Tools are mixins or functions. Please prefix each file with its type <code>_mixin</code> or <code>_function</code>.</li>
+<li><strong>Normalize</strong> Prevents initial style cross-browser inconsistencies...you know the drill.</li>
+<li><strong>Base</strong> This file supplements any addition element styling that Normalize missed.</li>
+<li><strong>Components</strong> These are the meat and bones of our interface–anything visual on the page <em>is a component</em>. Component classes are constructed like this: <code>.c-title</code>, with child elements: <code>.c-title__subtitle</code>, style variants can be used like so: <code>.c-title.c-title--small</code>. Children elements of a component should never be nested inside of a different parent component, for example <code>.c-title -&gt; .c-tag -&gt; .c-title__subtitle</code>.</li>
+<li><strong>Utilities</strong> These special classes help &quot;bully&quot; components in one-off situations, for example: <code>.c-title.u-float-right</code>. Please take special note here, if a component uses the same utility class in more than 1 or 2 instances in the app it would be best to create a state class for that of that component instead. Also keep in mind that most layout issues can be solved with the <code>.c-grid</code> component.</li>
+</ol>
+<h3>A Note On Spacing</h3>
+<p>👉 Blocks of elements need to be wrapped in <code>&quot;c-section&quot;</code> elements 👈 The Section component is a tiny wrapper that provides the standardized padding accross the <em>entire</em> app.</p>
+<h3>A Note On The Grid</h3>
+<p>The grid comes from a vendor (avalanche.css)[http://colourgarden.net/avalanche/]. For comprehensive (documentation)[https://github.com/colourgarden/avalanche] see the github project. An example of use lives in the design system preview.</p>
+
+      </div>
 </article>
 </main>
 

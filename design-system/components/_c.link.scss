@@ -19,7 +19,7 @@
   &:active,
   &:focus {
     color: $c-primary;
-    border-bottom-color: $c-secondary;
-    background: $c-secondary-light;
+    border-bottom-color: $c-primary-light;
+    background: $c-primary-light;
   }
 }
