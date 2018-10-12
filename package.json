@@ -5,6 +5,11 @@
   },
   "devDependencies": {
     "brunch": "^2.10.17",
+    "kss": "^3.0.0-beta.23",
     "sass-brunch": "2.10.5"
+  },
+  "scripts": {
+    "serve": "brunch server --watch",
+    "build-styleguide": "yarn run kss --source design-system --destination public/styleguide --css /assets/style.css"
   }
 }

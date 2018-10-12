@@ -2,12 +2,13 @@
 //
 // Your standard button suitable for clicking.
 //
-// :hover   - Highlights when hovering.
-// .shiny   - Do not press this big, shiny, red button.
+// Markup:
+// <a href="#" class="c-button {{modifier_class}}">Button</a>
 //
-// Markup: button.html
+// :hover - Highlights when hovering.
+// .button--large   - Do not press this big, shiny, red button.
 //
-// Style guide: components.button
+// Styleguide: components.button
 
 .c-button {
   $active-classes: "&.c-button--active, \
