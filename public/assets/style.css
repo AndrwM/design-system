@@ -1044,7 +1044,7 @@ ol.c-list .c-list__item::before {
   align-items: center; }
   .c-navigation .c-navigation__item {
     display: inline-block;
-    margin: 0 2px 0; }
+    margin: 7px 2px 0; }
     .c-navigation .c-navigation__item:first-child {
       margin-left: 0; }
     .c-navigation .c-navigation__item:last-child {
@@ -1057,7 +1057,7 @@ ol.c-list .c-list__item::before {
     font-family: -apple-system,BlinkMacSystemFont,'segoe ui',roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,'helvetica neue',sans-serif;
     font-weight: 500;
     color: rgba(115, 115, 115, 0.6);
-    padding: 7px;
+    padding: 14px 7px;
     display: inline-block;
     border-bottom: 2px solid transparent;
     transition: all 0.15s ease; }
@@ -1066,18 +1066,11 @@ ol.c-list .c-list__item::before {
       border-bottom-color: #EEEFF1; }
     .c-navigation .c-navigation__link--active, .c-navigation .c-navigation__link:active, .c-navigation .c-navigation__link:focus {
       color: #272727 !important;
-      border-bottom-color: #5845a3 !important; }
+      border-bottom-color: #685ccc !important; }
   .c-navigation--no-border {
     margin-bottom: 7px; }
     .c-navigation--no-border .c-navigation__link {
       border-bottom: none; }
-  .c-navigation--small {
-    color: rgba(115, 115, 115, 0.8); }
-    .c-navigation--small .c-navigation__link {
-      font-size: 0.92308rem;
-      line-height: 1.6;
-      font-family: -apple-system,BlinkMacSystemFont,'segoe ui',roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,'helvetica neue',sans-serif;
-      font-weight: 400; }
 
 .c-button {
   box-shadow: none;

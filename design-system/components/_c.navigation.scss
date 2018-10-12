@@ -20,7 +20,6 @@
 //
 //
 // .c-navigation--no-border   - Remove the bottom border from links
-// .c-navigation--small       - Add make it small
 // 
 // Styleguide: components.input.navigation
 
@@ -36,7 +35,7 @@
     $item-spacer: 2px;
 
     display: inline-block;
-    margin: 0 $item-spacer 0;
+    margin: $s-tiny $item-spacer 0;
 
     &:first-child { margin-left: 0; }
     &:last-child { margin-right: 0; }
@@ -46,7 +45,7 @@
   .c-navigation__link {
     @include font(14px, medium);
     color: rgba($c-grey-medium, 0.6);
-    padding: $s-tiny;
+    padding: $s-small $s-tiny;
     display: inline-block;
     border-bottom: 2px solid transparent;
     transition: all $transition-speed ease;
@@ -60,7 +59,7 @@
     &:active,
     &:focus {
       color: $c-grey-xdark !important;
-      border-bottom-color: $c-primary-light !important;
+      border-bottom-color: $c-primary !important;
     }
   }
 
@@ -68,10 +67,5 @@
     margin-bottom: $s-tiny;
     .c-navigation__item {  }
     .c-navigation__link { border-bottom: none; }
-  }
-
-  &--small {
-    color: rgba($c-grey-medium, 0.8);
-    .c-navigation__link { @include font(12px); }
   }
 }
