@@ -1,0 +1,476 @@
+<div class="c-container u-padding-vertical-large">
+    <div class="c-section">
+      <p class="c-status">
+        This project is in development. Design system &amp; documentation changes will occur.
+      </p>
+      <div class="c-logo c-logo--dark u-padding-top-large">
+        Dealer Cockpit
+      </div>
+      <div class="c-title c-title--xlarge">UI Design System &amp; CSS Styleguide</div>
+      <p class="c-paragraph">
+        Dealer Cockpit uses <a class="c-paragraph__link" href="http://getbem.com/naming/">BEM CSS syntax</a> and takes heavy cues from the <a class="c-paragraph__link" href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/">ITCSS architecture strategy</a>. "Components" in this document refer to CSS components (stylesheet for a single UI element) not Angular Components.
+      </p>
+      <p class="c-paragraph">
+        Each html element that has CSS styles is considered a component or a child of a component and is namespaced with a html class name to reflect the relationship. This organization strategy prevents implicit element styling by the browser and the CSS cascade. It allows each CSS component to be parent element and html-tag agnostic – components are in complete control of how they look and fill 100% width of their containing element unless otherwise defined.
+      </p>
+    </div>
+    <div class="c-section">
+      <div class="c-title c-title--small">Anatomy Of The System</div>
+    </div>
+    <div class="c-section">
+      <ol class="c-list">
+        <li class="c-list__item">
+          <div class="c-label c-label--large">styles.scss</div>
+          Global manifest file
+        </li>
+        <li class="c-list__item">
+          <div class="c-label c-label--large">styles/_variables.scss</div>
+          Standardized spacing, typefaces, sizing, colors, etc.
+        </li>
+        <li class="c-list__item">
+          <div class="c-label c-label--large">styles/tools/</div>
+          SCSS mixins and functions
+        </li>
+        <li class="c-list__item">
+          <div class="c-label c-label--large">styles/fonts/</div>
+          Brand typography
+        </li>
+        <li class="c-list__item">
+          <div class="c-label c-label--large">styles/_base.scss</div>
+          Supplements normalize-css with project specific defaults
+        </li>
+        <li class="c-list__item">
+          <div class="c-label c-label--large">styles/components/</div>
+          These are the meat and bones of our interface–anything visual on the page is a component.
+        </li>
+        <li class="c-list__item">
+          <div class="c-label c-label--large">styles/utilities/</div>
+          These special classes help "bully" components in one-off situations, for example: <code>.c-title.u-float-right</code>. Please take special note here, if a component uses the same utility class in more than 1 or 2 instances in the app it is best to create a state class for that style variant. Also, keep in mind that most layouts can be handled by the <code>.c-grid</code> component.
+        </li>
+        <li class="c-list__item">
+          <div class="c-label c-label--large">styles/vendor/</div>
+          Library-specific vendor css overrides
+        </li>
+      </ol>
+    </div>
+    <div class="c-section">
+      <div class="c-title c-title--small">CSS Components</div>
+    </div>
+    <div class="c-section">
+      <div class="c-grid">
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-button</code>
+          <p class="c-paragraph">
+            Standard button component, has large variant
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-card</code>
+          <p class="c-paragraph">
+            A box, has tranparent and white backgrounds
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-container</code>
+          <p class="c-paragraph">
+            Containing parent that sets max-width for all UI elements, has slim variant
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-container-login</code>
+          <p class="c-paragraph">
+            Containing parent for custom login page layout
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-grid</code>
+          <p class="c-paragraph">
+            Vendor grid component (<a class="c-paragraph__link" href="https://www.npmjs.com/package/avalanche-css">avalanche.scss</a>) has column children, uses width utility classes
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-header-fixe</code>
+          <p class="c-paragraph">
+            Large header, fixed position
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-indicator</code>
+          <p class="c-paragraph">
+            Inline colored circle that indicates status
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-header</code>
+          <p class="c-paragraph">
+            Standard header parent
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-input</code>
+          <p class="c-paragraph">
+            Handles browser inputs 
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-label</code>
+          <p class="c-paragraph">
+            Single-line information
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-link</code>
+          <p class="c-paragraph">
+            Standalone text link styling
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-list</code>
+          <p class="c-paragraph">
+            Ordered &amp; un-ordered list styles
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-logo</code>
+          <p class="c-paragraph">
+            Dealer Cockpit logo, dynamic type with custom kerning
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-modal</code>
+          <p class="c-paragraph">
+            Modal with animation, contains a close button child and a content container child. Use <code>.c-card > .c-section</code> within the content container for standardized styling/spacing.
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-navigation</code>
+          <p class="c-paragraph">
+            One of the more robust components &mdash; Horizontal link list with right and left alignment options along with built-in dropdowns
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-search</code>
+          <p class="c-paragraph">
+            Standalone search component
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-search-small</code>
+          <p class="c-paragraph">
+            Small input component used in the table filtering.
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-select</code>
+          <p class="c-paragraph">
+            Html select styling
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-notification</code>
+          <p class="c-paragraph">
+            Page-level notification, floats underneath navigation on large viewports, has a red warning/error variant. 
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-paragraph</code>
+          <p class="c-paragraph">
+            Multi-line text information with child link styles, has a small variant
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-section</code>
+          <p class="c-paragraph">
+            Standardized padding, stacks elegantly with a horizontal rule
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-title</code>
+          <p class="c-paragraph">
+            App headings / large type, has xlarge, large, &amp; small variants
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/2--desk">
+          <code>.c-tooltip</code>
+          <p class="c-paragraph">
+            Inline info icon that provides a tooltip on hover
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-title c-title--small">CSS Utilities</div>
+    </div>
+    <div class="c-section">
+      <div class="c-grid">
+        <div class="c-grid__cell u-1/3--desk">
+          <code>.u-border</code>
+          <p class="c-paragraph">
+            Set a top/right/bottom/left border
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/3--desk">
+          <code>.u-clearfix</code>
+          <p class="c-paragraph">
+            Clearfix, sets position: relative
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/3--desk">
+          <code>.u-capitalize</code>
+          <p class="c-paragraph">
+            CSS text-transform utility changes the text case.
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/3--desk">
+          <code>.u-float</code>
+          <p class="c-paragraph">
+            Float right/left
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/3--desk">
+          <code>.u-hide</code>
+           <p class="c-paragraph">
+            Hide element standard or on mobile viewports
+          </p>
+        </div>
+        <div class="c-grid__cell u-1/3--desk">
+          <code>.u-[fraction]</code>
+          <p class="c-paragraph">
+            Fractional width class with responsive breakpoints (example: <code>.u-1/3--desktop)</code>
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-title c-title--small">Vendor</div>
+    </div>
+    <div class="c-section">
+      <div class="c-grid">
+        <div class="c-grid__cell u-1/3--desk">
+          <code>.ngx-datatable</code>
+          <p class="c-paragraph">
+            Angular-ngx-datatable theme
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-title c-title--small">CSS Component Examples</div>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-title c-title--xlarge">Order Lookup</div>
+      <div class="c-label">Title Extra Large</div>
+      <code>.c-title.c-title--xlarge</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-title c-title--large">440i XDrive</div>
+      <div class="c-label">Title Large</div>
+      <code>.c-title.c-title--large</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-title">330i Sedan</div>
+      <div class="c-label">Title</div>
+      <code>.c-title</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-title c-title--small">1234567890</div>
+      <div class="c-label">Title Small</div>
+      <code>.c-title.c-title--small</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-label c-label--large">Activation Code</div>
+      <div class="c-label">Label Large</div>
+      <code>.c-label.c-label--large</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-label">April 18th, 2018</div>
+      <div class="c-label">Label</div>
+      <code>.c-label</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-label">Results For 12345678</div>
+      <div class="c-label">Label Small</div>
+      <code>.c-label.c-label--small</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-button c-button--large">Search</div>
+      <div class="c-label">Button Large</div>
+      <code>.c-button.c-button--large</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-button">Send Code</div>
+      <div class="c-label">Button</div>
+      <code>.c-button</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-button c-button--small">Send Email</div>
+      <div class="c-label">Button Small</div>
+      <code>.c-button.c-button--small</code>
+    </div>
+  
+    <div class="c-section">
+       <span class="c-indicator">&nbsp;</span>
+       &nbsp;
+       <span class="c-indicator c-indicator--warning">&nbsp;</span>
+       <br/>
+       <br/>
+      <div class="c-label">Indicator, positive and negative</div>
+      <code>.c-indicator, .c-indicator.c-indicator--warning</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-tooltip">
+        <img
+          class="c-tooltip__icon"
+          src="assets/images/icon-info.svg">
+        <div class="c-tooltip__content">
+          <span class="c-indicator c-indicator--warning u-margin-right-tiny">&nbsp;</span>
+          <span class="c-label c-label--small c-label--on-dark c-label--inline">
+            4/08/18 at 1:15 pm
+          </span>
+          <br/>
+          <span class="c-indicator u-margin-right-tiny">&nbsp;</span>
+          <span class="c-label c-label--small c-label--on-dark c-label--inline">
+            4/06/18 at 4:14 pm
+          </span>
+          <br/>
+          <span class="c-indicator u-margin-right-tiny">&nbsp;</span>
+          <span class="c-label c-label--small c-label--on-dark c-label--inline">
+            4/06/18 at 2:03 pm
+          </span>
+          <br/>
+        </div>
+      </div>
+      <div class="c-tooltip">
+        <img
+          class="c-tooltip__icon"
+          src="assets/images/icon-eye.svg">
+        <div class="c-tooltip__content">
+          <span class="c-label c-label--on-dark">Description Of Production Status</span>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div class="c-label">Tooltip, this tooltip example contains indicator and label components</div>
+      <code>.c-tooltip, .c-tooltip--icon, .c-tooltip--content</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-status c-status--active">Dispatched</div>
+      <div class="c-label">Status Active</div>
+      <code>.c-status.c-status--active</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-status">Delivered</div>
+      <div class="c-label">Status</div>
+      <code>.c-status</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-card">
+        <div class="c-section">
+          <div class="c-paragraph">
+            This is a <code>.c-card</code> with <code>.c-section</code> component. The section component within the card component provides standardized padding.
+          </div>
+        </div>
+      </div>
+      <div class="c-label">Card</div>
+      <code>.c-card > .c-section</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-card c-card--white">
+        <div class="c-section">
+          <div class="c-paragraph">
+            This is a white <code>.c-card</code> with <code>.c-section</code> component.
+          </div>
+        </div>
+      </div>
+      <div class="c-label">Card White</div>
+      <code>.c-card.c-card--white > .c-section</code>
+    </div>
+  
+    <div class="c-section">
+      <div
+        class="c-select">
+        <span class="c-select__label">
+          Status:
+        </span>
+        <select
+          class="c-select__input"
+          name="activation_status">
+          <option value="">all</option>
+          <option value="activated">Activated</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+      <div class="c-label">Select</div>
+      <code>.c-select, .c-select > .c-select__lable, .c-select > .c-select__input</code>
+    </div>
+  
+    <div class="c-section">
+      <div class="c-search">
+        <div class="c-tooltip u-margin-left-small">
+          <img
+            class="c-tooltip__icon"
+            src="assets/images/icon-info.svg">
+          <div class="c-tooltip__content">
+            <div class="c-label c-label--small c-label--on-dark">
+              Order numbers must be 7 digits.
+            </div>
+          </div>
+        </div>
+  
+        <input
+          class="c-search__input"
+          type="text"
+          required
+          maxlength="7"
+          pattern="[0-9]*"
+          placeholder="Order Number" />
+  
+        <div class="c-search__error">
+          Invalid. Order number must be 7 digits.
+        </div>
+  
+        <button class="c-button c-button--large" type="submit">
+          Search component
+        </button>
+  
+      </div>
+      <div class="c-label c-label--small u-margin-top-large">
+        Search, in addition to having its own child elements this component alsp contains the large button and tooltip as displayed in this example.<br/><code>.c-search, .c-search__input, .c-search__error</code>
+      </div>
+    </div>
+  
+    <div class="c-section">
+      <fieldset class="c-input">
+        <input class="c-input__text" type="text" name="username" required placeholder="Username" />
+        <label class="c-input__label">Username</label>
+        <div class="c-input__message">Message</div>
+      </fieldset>
+      <fieldset class="c-input c-input--warning">
+        <input class="c-input__text" type="password" name="password" required placeholder="Password" />
+        <label class="c-input__label">Password</label>
+        <div class="c-input__message">Warning</div>
+      </fieldset>
+      <div class="c-label">Input Fieldset</div>
+      <code>.c-input, .c-input__label, .c-input__text, .c-input__message</code>
+      <div class="c-label">NOTE: This component requires Angular logic to check input length and apply <code>.c-input--has-value</code>. See the login view for implementation example.</div>
+    </div>
+  </div>
+  

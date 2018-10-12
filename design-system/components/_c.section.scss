@@ -1,3 +1,21 @@
+// c-section
+//
+// Top-level notification component that is bottom fixed to the viewport. The notification component hides 8 seconds after injection. Please note: the inline styles in the preview markup are for styleguide presentation purposes.
+//
+// Markup:
+// <div class="c-section {{modifier_class}}">
+//  standardized padding and color!
+// </div>
+//
+// .c-section--small  - *Size Variant:* Small y-height
+// .c-section--flush  - *Size Variant:* Flush y-height
+// .c-section--white  - *Color Variant* Make the background white
+// .c-section--light  - *Color Variant* Make the background light
+// .c-section--focal  - *Color Variant* Make the background focal
+// .c-section--dark   - *Color Variant* Make the background dark
+// 
+// Styleguide: components.contain.section
+
 .c-section {
   $padding-x: 3vw;
 

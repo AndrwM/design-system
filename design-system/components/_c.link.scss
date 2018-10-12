@@ -1,3 +1,12 @@
+// c-link
+//
+// Stylized content container. Use the c-section component inside to standardize padding.
+//
+// Markup:
+// <a class="c-link" href="#">Standalone Links</a>
+//
+// Styleguide: components.input.link
+
 .c-link {
   @include font(13px, regular);
   transition: color $transition-speed linear, background $transition-speed linear;

@@ -1,3 +1,11 @@
+// c-container-page
+//
+// Immediate child of the body tag. Wraps all elements of a page.
+//
+// .c-container-page--slim   - Slim the page down.
+// 
+// Styleguide: components.contain.container-page
+
 .c-container-page {
   padding: 0;
   min-height: $h-page;

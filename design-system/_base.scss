@@ -62,7 +62,7 @@ a:active {
 
 [data-tooltip]::after {
   content: ' [?]';
-  color: $c-primary-light;
+  color: $c-primary-xlight;
   font-size: 90%;
   vertical-align: baseline;
 }

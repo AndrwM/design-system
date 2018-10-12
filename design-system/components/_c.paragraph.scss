@@ -1,3 +1,19 @@
+// c-paragraph
+//
+// The paragraph component is intended for multi-line information and can be stacked together to create long-form text regions. The component has a constrained width which optimizes the text for legibility.
+//
+// Markup:
+// <p class="c-paragraph {{modifier_class}}">
+//  Lorem ipsum sit <a class="c-paragraph__link">dolar</div>.
+// </p>
+//
+// .c-paragraph--small      - Make it small
+// .c-paragraph--on-dark    - For placement over dark backgrounds
+// .c-paragraph--center     - Center text
+// .c-paragraph--full-width - Make the paragraph full-width
+// 
+// Styleguide: components.content.paragraph
+
 .c-paragraph {
   @include font(16px);
   color: $c-grey-dark;

@@ -1,3 +1,29 @@
+// c-navigation
+//
+// Navigation component with item > link children elements.
+//
+// Markup:
+// <ul class="c-navigation {{modifier_class}}">
+//   <li class="c-navigation__item">
+//     <a class="c-navigtion__link c-navigation__link--active" href="#">Navigation Link</a>
+//   </li>
+//   <li class="c-navigation__item">
+//     <a class="c-navigtion__link" href="#">Navigation Link</a>
+//   </li>
+//   <li class="c-navigation__item c-navigation__item--push-right">
+//     <a class="c-navigtion__link" href="#">Navigation Link Pushed Right</a>
+//   </li>
+//   <li class="c-navigation__item">
+//     <a class="c-button c-button--small" href="#">Navigation Component Can Also Hold Buttons</a>
+//   </li>
+// </ul>
+//
+//
+// .c-navigation--no-border   - Remove the bottom border from links
+// .c-navigation--small       - Add make it small
+// 
+// Styleguide: components.input.navigation
+
 .c-navigation {
   list-style: none;
   padding: 0;

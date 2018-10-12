@@ -359,7 +359,7 @@ a:active {
 
 [data-tooltip]::after {
   content: ' [?]';
-  color: #5845a3;
+  color: #d5cdf7;
   font-size: 90%;
   vertical-align: baseline; }
 

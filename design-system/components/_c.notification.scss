@@ -1,3 +1,16 @@
+// c-notification
+//
+// Top-level notification component that is bottom fixed to the viewport. The notification component hides 8 seconds after injection. Please note: the inline styles in the preview markup are for styleguide presentation purposes.
+//
+// Markup:
+// <div class="c-notification {{modifier_class}}" style="position: relative; opacity: 1; visibility: visible;">
+//  Information!
+// </div>
+//
+// .c-notification--warning  - *Color Variant:* Warn the user
+// 
+// Styleguide: components.content.notification
+
 .c-notification {
 
   @keyframes page-notification-fade {

@@ -1,3 +1,18 @@
+// c-list
+//
+// Simple list component
+//
+// Markup:
+// <ul class="c-list">
+//   <li class="c-list__item">last_name</li>
+//   <li class="c-list__item">first_name</li>
+//   <li class="c-list__item">email</li>
+// </ul>
+//
+// 
+// Styleguide: components.content.list
+
+
 .c-list {
   margin: 0 0 $s-small;
   padding: 0;

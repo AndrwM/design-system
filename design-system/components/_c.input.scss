@@ -1,3 +1,36 @@
+// c-input
+//
+// Immediate child of the body tag. Wraps all elements of a page.
+//
+// Markup:
+// <div class="c-input {{modifier_class}}">
+//    <label class="c-input__label" for="input1">Email address</label>
+//    <input class="c-input__text" type="email" id="input1" placeholder="Enter email">
+// </div>
+// <div class="c-input {{modifier_class}}">
+//   <label class="c-input__label" for="input3">Choose One&hellip;</label>
+//   <select class="c-input__select" id="input3">
+//     <option value="1">Are Poptarts Ravioli?</option>
+//     <option value="2">VeggieTales Facts</option>
+//   </select>
+// </div>
+// <div class="c-input s{{modifier_class}}">
+//   <label class="c-input__label" for="input4">Upload</label>
+//   <input type="file" class="c-input__file" id="input4" />
+// </div>
+// <div class="c-input {{modifier_class}}">
+//   <label class="c-input__label" for="input5">More Information</label>
+//   <textarea class="c-input__text" id="input5" rows="4">Lorem Ipsum</textarea>
+// </div>
+// <div class="c-input {{modifier_class}}">
+//   <input class="c-input__checkbox" type="checkbox" id="input6">
+//   <label class="c-input__label c-input__label--inline" for="input6">More Information</label>
+// </div>
+//
+// .c-input--large   - Make it big!
+// 
+// Styleguide: components.input.input
+
 .c-input {
   $padding-horizontal: $s-small;
 

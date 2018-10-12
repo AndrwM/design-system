@@ -5,7 +5,7 @@
   </head>
   <body>
     <div class="c-container-page">
-      <header class="c-header">
+      <!-- <header class="c-header">
         <div class="c-navigtion">
           <a class="c-navigtion__link" href="#">
             Test
@@ -17,12 +17,18 @@
             Test
           </a>
         </div>
-      </header>
+      </header> -->
 
       <div class="c-section">
-        <h1 class="c-title c-title--large">Welcome to the Sentio UI documentation 🎨</h1>
-        <p class="c-paragraph">A living directory of UI components &amp; compositions.</p>
-        <p class="c-paragraph">Check out this page's pre-rendered source code for markup structure reference. The master list of all components lives in <span style="font-family: monospace;">stylesheets/application.scss</span>.</p>
+        <h1 class="c-title c-title--large">
+          Welcome to Design System&trade;
+        </h1>
+        <p class="c-paragraph">
+            Design System&trade; uses <a class="c-paragraph__link" href="http://getbem.com/naming/">BEM CSS syntax</a> and takes heavy cues from the <a class="c-paragraph__link" href="https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/">ITCSS architecture strategy</a>. "Components" in this document refer to CSS components (stylesheet for a single UI element).
+          </p>
+          <p class="c-paragraph">
+            Each html element that has CSS styles is considered a component or a child of a component and is namespaced with a html class name to reflect the relationship. This organization strategy prevents implicit element styling by the browser and the CSS cascade. It allows each CSS component to be parent element and html tag agnostic – components are in complete control of how they look and, in most cases, fill 100% width of their containing element unless otherwise defined.
+          </p>
       </div>
       
       <div class="c-section">
@@ -82,7 +88,6 @@
       
       <div class="c-section">
         <h3 class="c-title c-title--small">Current Success Factors</h3>
-        <p class="c-paragraph c-paragraph--small">High performing <%= link_to "Human Resources", "#", class: "c-link" %> team members showed the following qualities:</p>
         <ol class="c-list">
           <li class="c-list__item">
             <span class="c-list__item-title">Cooperation:</span>
@@ -105,7 +110,6 @@
           </li>
         </ol>
       </div>
-      
       
       <div class="c-section">
         <a class="c-button" href="#">Invite Top Performer</a>

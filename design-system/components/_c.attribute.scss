@@ -1,3 +1,16 @@
+// c-attribute
+//
+// Displays data in a key/value format. Useful for holding model meta data. Gracefully degrades if no value given to <code>c-attribute__value</code> component.
+//
+// Markup:
+// <div class="c-attribute">
+//   <div class="c-attribute__key">Participants</div>
+//   <div class="c-attribute__value">600</div>
+// </div>
+//
+//
+// Styleguide: components.content.attribute
+
 .c-attribute {
   @include font(13px, regular, 1.8, $ff-mono);
   display: inline-block;

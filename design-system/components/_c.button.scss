@@ -1,14 +1,18 @@
-// Button
+// c-button
 //
-// Your standard button suitable for clicking.
+// The button component is the primary source of user interaction in the application. Each button can have many different modifiers but take care not to use two modifiers of the same time (e.g. to *size* modifiers). This could create unexepected effects.
 //
 // Markup:
-// <a href="#" class="c-button {{modifier_class}}">Button</a>
+// <a href="#" class="c-button {{modifier_class}}">Take An Action</a>
 //
-// :hover - Highlights when hovering.
-// .button--large   - Do not press this big, shiny, red button.
+// .c-button--large       - *Size Variant:* Large button
+// .c-button--small       - *Size Variant:* Small button
+// .c-button--warning     - *Color Variant:* Red accent for irreversible actions
+// .c-button--focal       - *Color Variant:* Focal coloring to highlight a primary action
+// .c-button--disabled    - Disabled button state, useful for gate-ing the user. This style can also be applied using the `disabled` HTML attr
+// .c-button--full-width  - Make the button full-width
 //
-// Styleguide: components.button
+// Styleguide: components.input.button
 
 .c-button {
   $active-classes: "&.c-button--active, \

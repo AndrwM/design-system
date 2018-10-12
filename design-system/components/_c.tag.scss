@@ -1,3 +1,14 @@
+// c-tag
+//
+// It's a tag
+//
+// Markup:
+// <a class="c-tag {{modifier_class}}" href="#">Tag</a>
+//
+// .c-tag--active  - Active tag
+// 
+// Styleguide: components.content.tag
+
 .c-tag {
   $active-classes: "&.c-button--active, \
                     &,:active, \

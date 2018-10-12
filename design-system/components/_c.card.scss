@@ -1,3 +1,19 @@
+// c-card
+//
+// Stylized content container. Use the c-section component inside to standardize padding.
+//
+// Markup:
+// <div class="c-card {{modifier_class}}">
+//   <div class="c-section">
+//     <p class="c-paragraph">Cool content</p>
+//   </div>
+// </div>
+//
+// .c-card--light       - *Color Variant:* Primary light color.
+// .c-card--highlight   - Add focality
+// 
+// Styleguide: components.contain.card
+
 .c-card {
   margin: 0;
   background: $c-white;
